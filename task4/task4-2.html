@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 4</title>
+    <style>
+        body {
+            display: flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .block {
+            position: relative;
+            width:400px;
+            height: 200px;
+            background-color: #eeeeee;
+        }
+        .circle {
+            width: 50px;
+            height: 0;
+            border-top:50px solid #fc0;
+        }
+        .lefttop {
+
+            border-radius:0 0 50px 0;
+        }
+        .rightbottom {
+            border-radius:50px 0 0 0;
+            position: absolute;
+            top: 100%;
+            left: 100%;
+            transform: translate(-100%,-100%);
+        }
+    </style>
+</head>
+<body>
+<div class="block">
+    <div class="circle lefttop"></div>
+    <div class="circle rightbottom">
+    </div>
+</div>
+</body>
+</html>
