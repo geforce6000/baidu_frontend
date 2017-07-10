@@ -1,23 +1,24 @@
-div.block {
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body div.block {
   width: 400px;
   height: 200px;
   background-color: #eeeeee;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   justify-content: space-between;
 }
-div.block div.circle {
+body div.block div.circle {
   width: 50px;
   height: 0;
   border-top: 50px solid #fc0;
 }
-div.block div.lefttop {
+body div.block div.lefttop {
   border-radius: 0 0 50px 0;
 }
-div.block div.rightbottom {
+body div.block div.rightbottom {
   align-self: flex-end;
   border-radius: 50px 0 0 0;
 }
