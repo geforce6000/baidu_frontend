@@ -1,0 +1,44 @@
+div.container {
+  width: 800px;
+  height: 600px;
+  text-align: center;
+}
+div.container div.header {
+  width: auto;
+  height: 40px;
+  font: 24px 微软雅黑;
+  text-align: center;
+}
+div.container div.mainsquare {
+  margin: 0 auto;
+  padding: 5px;
+  border: 1px solid #000;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+div.container div.mainsquare div.square {
+  width: 90px;
+  height: 90px;
+  background-color: #F8F8F8;
+  margin: 5px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.container div.btn-group {
+  width: 400px;
+  height: 40px;
+  margin: 0 auto;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+div.container div.btn-group div.btn {
+  width: 80px;
+  height: 40px;
+  border: 1px solid #000;
+}

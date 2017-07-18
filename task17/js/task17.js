@@ -141,35 +141,35 @@ function initAqiChartData() {
     // 将原始的源数据处理成图表需要的数据格式
     // 处理好的数据存到 chartData 中
     switch (pageState.nowGraTime) {
-     case "day": {
-         for (aqi in aqiSourceData[pageState.nowSelectCity]) {
-             chartData[aqi] = aqiSourceData[pageState.nowSelectCity][aqi];
-         }
-         break;
-     }
-     case "week": {
-         var weekaverage=0, countday=1;
-         for (aqi in aqiSourceData[pageState.nowSelectCity]) {
-             weekaverage += aqiSourceData[pageState.nowSelectCity][aqi];
-             countday++;
-             if (countday%7==0) {
-                 chartData[aqi] = weekaverage/7;
-                 weekaverage = 0;
+         case "day": {
+             for (aqi in aqiSourceData[pageState.nowSelectCity]) {
+                 chartData[aqi] = aqiSourceData[pageState.nowSelectCity][aqi];
              }
+             break;
          }
-     break;
-     }
-     case "month": {
-         var monthdata={"01":0,"02":0,"03":0}, monthdays={"01":0,"02":0,"03":0};
-         for (aqi in aqiSourceData[pageState.nowSelectCity]) {
-             monthdata[aqi.slice(5,7)] += aqiSourceData[pageState.nowSelectCity][aqi];
-             monthdays[aqi.slice(5,7)] += 1;
+         case "week": {
+             var weekaverage=0, countday=1;
+             for (aqi in aqiSourceData[pageState.nowSelectCity]) {
+                 weekaverage += aqiSourceData[pageState.nowSelectCity][aqi];
+                 countday++;
+                 if (countday%7==0) {
+                     chartData[aqi] = weekaverage/7;
+                     weekaverage = 0;
+                 }
+             }
+         break;
          }
-         for (months in monthdata) {
-             chartData[months] = monthdata[months]/monthdays[months];
+         case "month": {
+             var monthdata={"01":0,"02":0,"03":0}, monthdays={"01":0,"02":0,"03":0};
+             for (aqi in aqiSourceData[pageState.nowSelectCity]) {
+                 monthdata[aqi.slice(5,7)] += aqiSourceData[pageState.nowSelectCity][aqi];
+                 monthdays[aqi.slice(5,7)] += 1;
+             }
+             for (months in monthdata) {
+                 chartData[months] = monthdata[months]/monthdays[months];
+             }
+         break;
          }
-     break;
-     }
      }
 }
 
@@ -187,6 +187,9 @@ function init() {
     $(":radio").on("click", function () {
         graTimeChange($(this).attr('value'));
     })
+
 }
 
 init();
+
+console.log(aqiSourceData);

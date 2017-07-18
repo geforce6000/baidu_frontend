@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 9</title>
+    <style>
+        body,h1,h2,h3,h4,h5,h6,p,img,div,span,ul,li{
+            margin:0;
+            padding:0;
+            font-style: normal;
+        }
+        .container {
+            width:1280px;
+            margin:0 auto;
+            background-color:#fff;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        .header {
+            height: 56px;
+            width: 1280px;
+            background-color: #228abf;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+        }
+        .header .header-logo {
+            margin-left: 50px;
+            font-size:0;
+        }
+        .header .header-right-part {
+            margin-right: 92px;
+            display: flex;
+            align-items: center;
+        }
+        .header .header-search {
+            width: 266px;
+            height: 28px;
+            border-radius: 28px;
+            border: none;
+            background: #fff url("header-input-icon.png") no-repeat scroll 18px center;
+            padding-left: 46px;
+
+        }
+        .header .header-right-part img {
+            margin-left: 22px;
+        }
+        .header .header-right-part .header-login-text {
+            font-family: 黑体;
+            font-size: 12px;
+            margin-left: 3px;
+        }
+        .column-left {
+            width: 260px;
+            background-color: #2a2e3d;
+            height: 1264px;
+            color: #6e8095;
+        }
+        .column-left .deactive {
+            color: #6e8095;
+        }
+        .column-left .active {
+            color: #f6f5f5;
+        }
+        .column-left .icon-part-1 {
+            margin-top: 18px;
+            padding-left: 45px;
+            display: flex;
+            align-items: center;
+            font-family: 黑体;
+            font-size: 16px;
+        }
+        .column-left .icon-part-1 .left-user-id {
+            margin-left: 18px;
+        }
+        .column-left .icon-part-2 {
+            width: 146px;
+            margin-top: 24px;
+            padding-left: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 宋体;
+            font-size: 12px;
+        }
+        .icon-part-2 .upper {
+            font-family: 黑体;
+            font-size:16px;
+            line-height: 18px;
+            }
+        .column-left .icon-part-2 .little-wall {
+            height: 28px;
+            width: 2px;
+            background-color: #313545;
+        }
+        .menu, .menu-2, .menu-3 {
+            padding-left: 45px;
+            font-family: 黑体;
+            font-size:12px;
+            margin: 10px 0 10px;
+        }
+        .menu-2 {
+            padding-left: 66px;
+        }
+        .menu-3 {
+            padding-left: 100px;
+        }
+        .menu .form {
+            display: inline-block;
+            width:12px;
+            height:12px;
+            background: url("column-left-form-icon.png") no-repeat;
+        }
+        .menu .star {
+            display: inline-block;
+            width:12px;
+            height:12px;
+            background: url("column-left-star.png") no-repeat;
+        }
+        .menu .share {
+            display: inline-block;
+            width:12px;
+            height:12px;
+            background: url("column-left-share.png") no-repeat;
+        }
+        .menu .account {
+            display: inline-block;
+            width:12px;
+            height:12px;
+            background: url("column-left-account.png") no-repeat;
+        }
+         .deactive .folder {
+            display: inline-block;
+            width:12px;
+            height:12px;
+            background: url("column-left-folder.png") no-repeat 0 -12px;
+        }
+         .active .folder {
+             display: inline-block;
+             width:12px;
+             height:12px;
+             background: url("column-left-folder.png") no-repeat;
+         }
+         .active .file {
+             display: inline-block;
+             width:12px;
+             height:12px;
+             background: url("column-left-file.png") no-repeat;
+         }
+         .deactive .file {
+             display: inline-block;
+             width:12px;
+             height:12px;
+             background: url("column-left-file.png") no-repeat 0 -12px;
+         }
+        .deactive .arrow {
+            display: inline-block;
+            width:11px;
+            height:11px;
+            background: url("column-left-arrow.png") no-repeat;
+        }
+        .active .arrow {
+            display: inline-block;
+            width:11px;
+            height:11px;
+            background: url("column-left-arrow.png") no-repeat 0 -11px;
+        }
+        .column-left .logo {
+            margin-right:10px;
+            font-size: 0;
+        }
+        .column-left .highlight {
+            margin-top: 24px;
+            background-color: #383d4e;
+            padding:3px 0 3px;
+        }
+        .column-right {
+            width: 1020px;
+            background-color: #eeeeed;
+            height: 1264px;
+        }
+        .column-right-header {
+            height: 30px;
+            background-color: #fff;
+        }
+        .column-right-header .text {
+            font-family: 黑体;
+            font-size: 12px;
+            line-height: 30px;
+            color: #2a2e3d;
+            margin-left: 30px;
+        }
+        .column-right-header .text .highlight {
+            color: #82a8cb;
+        }
+        .column-right-container {
+            padding: 20px 60px;
+        }
+        .column-right-container .search-pad {
+            height: 86px;
+            color: #2a2e3d;
+            background-color: #fff;
+            border: 1px solid #dddee0;
+        }
+        .column-right-container .time-pad {
+            height: 66px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .time-pad .pad {
+            height: 64px;
+            background-color: #fff;
+            border: 1px solid #dddee0;
+        }
+        .time-pad .arrow {
+            width:30px;
+        }
+        .time-pad .clock-pad {
+            width:110px;
+        }
+        .time-pad .history {
+            width: 130px;
+        }
+        .column-right-container .month-pad-tag {
+            margin: 20px 0 4px;
+            height: 16px;
+            color: #000;
+            font-family: 微软雅黑;
+            font-size: 12px;
+        }
+        .month-pad {
+            height: 72px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .month-pad .pad {
+            height: 70px;
+            width: 202px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #dddee0;
+            font-family: 黑体;
+        }
+        .month-pad .pad span {
+            display: inline-block;
+        }
+        .month-pad .pad .little-wall {
+            height: inherit;
+            width: 3px;
+        }
+        .month-pad .pad .text {
+
+        }
+        .month-pad .pad .square {
+            width: 60px;
+            height: 46px;
+            margin-left: 50px;
+            margin-right: 14px;
+        }
+        .month-pad .number {
+            font-size: 15px;
+            line-height: 24px;
+            color: #000;
+        }
+        .month-pad .stat {
+            font-size: 10px;
+            line-height: 20px;
+            color: #aaa;
+        }
+        .green {
+            background-color: #43b29e;
+        }
+        .blue {
+            background-color: #388ac1;
+        }
+        .red {
+            background-color: #cf4a36;
+        }
+        .yellow {
+            background-color: #e2cd46;
+        }
+        .card {
+            height: 356px;
+            background-color: #fff;
+            border: 1px solid #dddee0;
+            border-radius: 6px;
+        }
+        .card-line {
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .big {
+            width:534px;
+        }
+        .small {
+            width: 354px;
+        }
+        .card-header {
+            height: 40px;
+            color: #aaa;
+            background-color: #f3f5f6;
+            font-family: 黑体;
+            font-size: 12px;
+            line-height: 40px;
+            padding-left: 20px;
+            border-radius: 6px 6px 0 0;
+            border-bottom: 1px solid #dddee0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-logo">
+                <img src="header-logo.png" alt="">
+            </div>
+            <div class="header-right-part">
+                <input type="text" class="header-search">
+                <img src="header-right-icon.png" alt="">
+                <span class="header-login-text">登陆</span>
+            </div>
+        </div>
+        <div class="column-left">
+            <div class="icon-part-1">
+                <img src="column-left-icon.png" alt="">
+                <span class="left-user-id active">ABC123</span>
+            </div>
+            <div class="icon-part-2">
+                <div class="user-favorate"><span class="upper">110</span><br>收藏</div>
+                <div class="little-wall"></div>
+                <div class="user-fans"><span class="upper">313</span><br>粉丝</div>
+            </div>
+            <div class="highlight">
+                <div class="menu active">
+                    <span class="form logo"></span><span class="text">个人报表</span>
+                </div>
+                    <div class="menu-2 deactive">
+                        <span class="arrow logo"></span><span class="folder logo"></span><span class="text">文件一</span>
+                    </div>
+                    <div class="menu-2 active">
+                        <span class="arrow logo"></span><span class="folder logo"></span><span class="text">文件二</span>
+                    </div>
+                        <div class="menu-3 active">
+                            <span class="file logo"></span><span class="text">文档一</span>
+                        </div>
+                        <div class="menu-3 deactive">
+                            <span class="file logo"></span><span class="text">文档二</span>
+                        </div>
+                    <div class="menu-2 deactive">
+                        <span class="arrow logo"></span><span class="folder logo"></span><span class="text">文件三</span>
+                    </div>
+            </div>
+            <div class="menu"><span class="star logo"></span><span class="text">个人收藏</span></div>
+            <div class="menu"><span class="share logo"></span><span class="text">我的分享</span></div>
+            <div class="menu"><span class="star logo"></span><span class="text">图库</span></div>
+            <div class="menu"><span class="star logo"></span><span class="text">成长记录</span></div>
+            <div class="menu"><span class="account logo"></span><span class="text">帐户信息</span></div>
+        </div>
+        <div class="column-right">
+            <div class="column-right-header">
+                <span class="text">C站 / 个人报表 / 文件一 / <span class="highlight">文档一</span></span>
+            </div>
+            <div class="column-right-container">
+                <div class="search-pad"></div>
+                <div class="time-pad">
+                    <div class="pad left arrow"></div>
+                    <div class="pad clock-pad"></div>
+                    <div class="pad clock-pad"></div>
+                    <div class="pad clock-pad"></div>
+                    <div class="pad clock-pad"></div>
+                    <div class="pad clock-pad"></div>
+                    <div class="pad clock-pad"></div>
+                    <div class="pad right arrow"></div>
+                    <div class="pad history"></div>
+                </div>
+                <div class="month-pad-tag">2016年4月份统计</div>
+                <div class="month-pad">
+                    <div class="pad"><span class="little-wall green"></span><span class="text"><div class="number">133311</div><div class="stat">成交量</div></span><span class="square green"></span></div>
+                    <div class="pad"><span class="little-wall blue"></span><span class="text"><div class="number">133311</div><div class="stat">成交量</div></span><span class="square blue"></span></div>
+                    <div class="pad"><span class="little-wall red"></span><span class="text"><div class="number">133311</div><div class="stat">成交量</div></span><span class="square red"></span></div>
+                    <div class="pad"><span class="little-wall yellow"></span><span class="text"><div class="number">133311</div><div class="stat">成交量</div></span><span class="square yellow"></span></div>
+                </div>
+                <div class="card-line">
+                    <div class="card big">
+                        <div class="card-header">第一组项目</div>
+                    </div>
+                    <div class="card small">
+                        <div class="card-header">第一组项目</div>
+                    </div>
+                </div>
+                <div class="card-line">
+                    <div class="card small">
+                        <div class="card-header">日历</div>
+                    </div>
+                    <div class="card big">
+                        <div class="card-header">汽车行业品牌榜</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
